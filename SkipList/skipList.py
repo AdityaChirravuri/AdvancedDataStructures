@@ -77,24 +77,29 @@ class SkipList:
 if __name__ == "__main__":
     skip_list = SkipList()
 
+    for i in range(0, 25):
+        key = random.randrange(1000)
+        skip_list.insert_element(key)
+        skip_list.display_list()
+
     # Insert elements
-    skip_list.insert_element(3)
-    skip_list.insert_element(6)
-    skip_list.insert_element(7)
-    skip_list.insert_element(9)
-    skip_list.insert_element(12)
-    skip_list.insert_element(19)
-    skip_list.insert_element(17)
-    skip_list.insert_element(26)
-    skip_list.insert_element(21)
-    skip_list.insert_element(25)
+    # skip_list.insert_element(3)
+    # skip_list.insert_element(6)
+    # skip_list.insert_element(7)
+    # skip_list.insert_element(9)
+    # skip_list.insert_element(12)
+    # skip_list.insert_element(19)
+    # skip_list.insert_element(17)
+    # skip_list.insert_element(26)
+    # skip_list.insert_element(21)
+    # skip_list.insert_element(25)
 
-    # Display the skip list
-    skip_list.display_list()
+    # # Display the skip list
+    # skip_list.display_list()
 
-    # Search for an element
-    skip_list.search_element(19)
+    # # Search for an element
+    # skip_list.search_element(19)
 
-    # Delete an element
-    skip_list.delete_element(19)
-    skip_list.display_list()
+    # # Delete an element
+    # skip_list.delete_element(19)
+    # skip_list.display_list()

@@ -1,10 +1,13 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <limits.h>
+#include <vector>
+
 using namespace std;
 
 class Node {
 public:
     int key;
-    vector<Node*> forward;
+    std::vector<Node*> forward;
     Node(int, int);
     ~Node();
 };
@@ -130,7 +133,11 @@ int SkipList::getMaxLevel(int rlevel) {
 
 bool operations(SkipList* skipList){
     int op=-1, key;
-    cin >> op;
+    key = rand()%10000;
+    cout << "Inserted " << key << "\n";
+    skipList->insertElement(key);
+    skipList->displayList();
+    /*cin >> op;
     switch(op){
 
         case 1:
@@ -166,14 +173,14 @@ bool operations(SkipList* skipList){
         
             cout << "Invalid Operations";
         break;
-    }
+    }*/
 
     return true;
 }   
 
 int main() {
     SkipList* skipList = new SkipList();
-    bool loop = true;
+    /*bool loop = true;
     while(loop){
         cout << "1: Insert Element into Skip List\n";
         cout << "2: Delete Element from Skip List\n";
@@ -184,6 +191,15 @@ int main() {
 
         loop = operations(skipList);
     }
+*/  
+    int count = 1;
+    while(count < 25){
+        cout << "OPerations " << count << "\n";
+        operations(skipList);
+        count++;
+    }
+
+
 
     return 0;
 }
