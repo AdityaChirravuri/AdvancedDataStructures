@@ -26,7 +26,6 @@ public:
     skipList* next;
     Node* data;
 
-    skipList(Node* );
     skipList();
     // skipList(int, int);
     ~skipList();
@@ -39,7 +38,9 @@ int main(){
     skipList* tail = head;
     for(int i=0; i<25; i++){
         Node* temp = new Node(i, 0);
-        skipList* cur = new skipList(temp);
+        skipList* cur = new skipList();
+        cur->data = temp;
+        cur->next = NULL;
         tail->next = cur;
         tail = cur;
     }
@@ -51,12 +52,11 @@ int main(){
 
 void printSkipList(skipList* head){
     while(head){
-        std::cout << head->data->getKey();
+        std::cout << head->data->getKey() << " " << head->data->getLevel() << "\n";
         
-        head->next;
+        head = head->next;
     }
 }
-
 
 //this is for each Node
 Node::Node(int key, int level){
@@ -90,10 +90,6 @@ int Node::getLevel(){
 skipList::skipList(){
     this->next = NULL;
     this->data = new Node(0);
-
-}
-
-skipList::skipList(Node* head) {
 
 }
 
