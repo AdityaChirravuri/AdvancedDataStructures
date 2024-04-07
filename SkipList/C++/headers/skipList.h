@@ -1,22 +1,25 @@
-#include "iostream"
-#include "skipListNode.h"
+#ifndef SKIP_LIST_H
+#define SKIP_LIST_H
 
-typedef skipListNode Node;
+typedef listNode Node;
 
 class skipList{
+private:
+    float p;
+    int MAX_LEVEL;
+    int level;
+    Node* head;
 public:
-    skipList* next;
-    Node* data;
-
-    skipList();
-    // skipList(int, int);
+    skipList(int, float);
     ~skipList();
 };
 
-skipList::skipList(){
-    this->next = NULL;
-    this->data = new Node();
+skipList::skipList(int max_level, float p){
+    
 
 }
 
-skipList::~skipList() {}
+skipList::~skipList() {
+    delete head;
+}
+#endif

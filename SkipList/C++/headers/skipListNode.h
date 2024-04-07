@@ -1,40 +1,24 @@
-class skipListNode{
-public:
-    int getKey() const;
-    void setKey(int);
+#ifndef SKIP_LIST_NODE_H
+#define SKIP_LIST_NODE_H
 
-    int getLevel() const;
-    void setLevel(int);
-
-    skipListNode(int, int);
-    skipListNode();
-    ~skipListNode();
-private:
+class listNode{
     int key;
-    int level;
+    int *value;
+    listNode** next;
+public:
+    listNode(int, int );
+    ~listNode(); 
 };
 
-//Methods
-int skipListNode::getKey() const{
-    return this->key;
+listNode::listNode(int key, int level) {
+        this->key = key;
+        value = nullptr;
+        next = new listNode*[level+1];
+        memset(next, 0, sizeof(listNode)*(level+1));
 }
 
-void skipListNode::setKey(int key){
-    this->key = key;
+listNode::~listNode() {
+        delete[] next;
+        delete value;
 }
-
-int skipListNode::getLevel() const{
-    return this->level;
-}
-
-void skipListNode::setLevel(int level){
-    this->level = level;
-}
-
-skipListNode::skipListNode() {}
-skipListNode::skipListNode(int key, int level) {
-    this->level = level;
-    this->key = key;
-}
-
-skipListNode::~skipListNode() {}
+#endif
